@@ -1,0 +1,13 @@
+*{
+     font-family: "Poppins", sans-serif;
+}
+
+
+.banner-text {
+  position: absolute;   /* overlay er upor bosate */
+  top: 40%;             /* vertical center */
+  left: 5%;             /* left side e push */
+  transform: translateY(-50%); /* vertical center adjust */
+  color: #fff;          /* text color */
+  text-align: left;     /* text ke left align */
+}
