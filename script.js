@@ -31,36 +31,47 @@ const displayAllProducts = (products) => {
 
 
         div.innerHTML = `
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="${product.image}" alt="${product.title}" />
+            <div class="card bg-white shadow-md rounded-lg overflow-hidden flex flex-col">
+
+                <figure class="h-52 bg-gray-100 flex items-center justify-center">
+
+                <img src="${product.image}" alt="${product.title}" class="h-full object-contain" />
                 </figure>
 
-                <div class="card-body">
-                    <div class="flex justify-between">
-                        <div class="badge text-primary bg-purple-50 font-bold">${product.category}</div>
 
-                        <div class="flex items-center ">
-                            <i class="fa-solid fa-star text-warning"></i>
-                            <p>${(product.rating.rate)} ${(product.rating.count)}</p>
-                        </div>
-                    </div>
-                    <h2 class="card-title text-xl mt-2">
-                        ${product.title}
-                    </h2>
-                    <h3 class="text-2xl font-bold">${product.price}</h3>
 
-                    <div class="card-actions justify-between">
+                <div class="card-body flex flex-col flex-1 p-4">
 
-                        <div class="badge badge-outline py-6 px-5  text-xl"><i class="fa-regular fa-eye"></i>${product.description}
-                        </div>
+                    <div class="flex justify-between items-center mb-2">
 
-                        <div class="badge badge-outline bg-primary text-white py-6 px-10 text-xl"><i
-                                class="fa-solid fa-cart-shopping"></i>Add</div>
+                        <span class="badge text-primary bg-purple-50 font-bold text-sm">${product.category}</span>
+
+                        <div class="flex items-center text-sm">
+                        <i class="fa-solid fa-star text-yellow-400 mr-1"></i>
+                        <span>${product.rating.rate} (${product.rating.count})</span>
                     </div>
                 </div>
+
+
+                <h2 class="text-lg font-semibold mb-1 truncate">${product.title}</h2>
+                <p class="text-xl font-bold mb-3">$${product.price}</p>
+
+                <div class="mt-auto flex justify-between">
+                    <button onclick="showDetails('${product.title}', '${product.description}')" class="btn btn-outline btn-sm">
+                        <i class="fa-regular fa-eye"></i> Details
+                    </button>
+                    <button onclick="addToCart(${product.id})" class="btn btn-primary btn-sm text-white">
+                        <i class="fa-solid fa-cart-shopping"></i> Add
+                    </button>
+                </div>
+
             </div>
+        
 `
+
+
+
+        allProductsContainer.appendChild(div)
     })
 }
 
