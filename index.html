@@ -165,6 +165,34 @@
         <div class="w-11/12 mx-auto py-20">
             <h2 class="text-4xl font-bold py-5 mb-5">Trending Now</h2>
 
+
+            <!-- All categories -->
+            <div class="my-5 w-60">
+                <div class="flex flex-wrap gap-3 my-5 justify-center">
+                    <button onclick="loadAllProducts()" class="btn btn-outline">All Products</button>
+                    <button onclick="loadAllProducts('men\'s clothing')" class="btn btn-outline">Men</button>
+                    <button onclick="loadAllProducts('women\'s clothing')" class="btn btn-outline">Women</button>
+                    <button onclick="loadAllProducts('jewelery')" class="btn btn-outline">Jewelery</button>
+                    <button onclick="loadAllProducts('electronics')" class="btn btn-outline">Electronics</button>
+                </div>
+
+            </div>
+
+
+
+
+            <!-- container -->
+            <div id="all-products-container"></div>
+
+
+
+
+
+
+
+
+
+
             <div class="card bg-base-100 w-96 shadow-sm">
                 <figure>
                     <img src="./Assets/backpack.jpg" alt="backpack" />
@@ -208,6 +236,19 @@
         </div>
 
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="./script.js"></script>
 </body>
 
 </html>
