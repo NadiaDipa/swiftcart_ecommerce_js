@@ -166,6 +166,7 @@ const displayAllCategories = (categories) =>{
 
         // Add click event safely
         button.addEventListener("click", () => {
+            // console.log(category);
             loadSpecificCategories(category);
         });
 
@@ -191,17 +192,26 @@ allCategories();
 // all specific categories , products-specific-container
 
 const loadSpecificCategories = async (category) =>{
-    const specific_categories_url = (`https://fakestoreapi.com/products/category/${category}`);
 
-    const res = await fetch(specific_categories_url);
-    const data = await res.json();
-    displaySpecificCategories(data);
+// console.log("clicked:" ,category);
+
+ const specific_categories_url = (`https://fakestoreapi.com/products/category/${category}`);
+
+// console.log(specific_categories_url);
+
+const res = await fetch(specific_categories_url);
+ const data = await res.json();
+// console.log(data);
+   displaySpecificCategories(data);
 }
 
 const displaySpecificCategories = (products) =>{
-    const products_specific_container = document.getElementById("products-specific-container");
+  // console.log("hello running function");
+     const products_specific_container = document.getElementById("products-specific-container");
+ //     console.log(products_specific_container);
 
-    products_specific_container.innerHTML = "";
+
+products_specific_container.innerHTML = "";
 
 
 
@@ -209,13 +219,23 @@ const displaySpecificCategories = (products) =>{
     products.forEach(product=>{
         const div = document.createElement("div");
 
-        div.innerHTML = `<img src="${product.image}" alt="${product.title}" class="w-32 h-32 object-contain">
-    <h3>${product.title}</h3>
-    <p>$${product.price}</p>`;
+        div.className = "border p-4 rounded shadow bg-white w-60 flex flex-col items-center";
 
-        products_specific_container.appendChild(div);
-    })
+
+    div.innerHTML = `<img src="${product.image}" alt="${product.title}" class="w-32 h-32 object-contain mb-2">
+        <h3 class="text-sm font-semibold text-center">${product.title}</h3>
+    <p class="text-gray-700 font-medium mt-1">$${product.price}</p>
+    `;
+
+     products_specific_container.appendChild(div);
+})
+
 }
 
 
-loadSpecificCategories("jewelery");
+// // loadSpecificCategories("jewelery");
+
+
+
+
+             
