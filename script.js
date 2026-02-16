@@ -132,3 +132,42 @@ const displayProductDetails = (product) => {
 
 }
 
+
+
+
+
+
+
+
+
+
+// all categories 
+
+const allCategories = async () =>{
+    const categories_url = ("https://fakestoreapi.com/products/categories")
+
+   const res = await fetch(categories_url);
+   const data = await res.json();
+   displayAllCategories(data);
+}
+
+allCategories();
+
+const displayAllCategories = (categories) =>{
+    const all_categories_container = document.getElementById("all_categories_container");
+
+    all_categories_container.innerHTML = "";
+
+
+
+    categories.forEach(category =>{
+        const div = document.createElement("div");
+
+        div.innerHTML = `<button class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full">${category}</button>`;
+
+        all_categories_container.appendChild(div);
+    })
+}
+
+
+allCategories();
