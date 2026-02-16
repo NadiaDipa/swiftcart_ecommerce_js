@@ -151,7 +151,6 @@ const allCategories = async () =>{
    displayAllCategories(data);
 }
 
-allCategories();
 
 const displayAllCategories = (categories) =>{
     const all_categories_container = document.getElementById("all_categories_container");
@@ -160,12 +159,17 @@ const displayAllCategories = (categories) =>{
 
 
 
-    categories.forEach(category =>{
-        const div = document.createElement("div");
+     categories.forEach(category => {
+        const button = document.createElement("button");
+        button.textContent = category;
+        button.className = "btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full";
 
-        div.innerHTML = `<button class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full">${category}</button>`;
+        // Add click event safely
+        button.addEventListener("click", () => {
+            loadSpecificCategories(category);
+        });
 
-        all_categories_container.appendChild(div);
+        all_categories_container.appendChild(button);
     })
 }
 
@@ -200,14 +204,18 @@ const displaySpecificCategories = (products) =>{
     products_specific_container.innerHTML = "";
 
 
+
+
     products.forEach(product=>{
         const div = document.createElement("div");
 
-        div.innerHTML = `Electronics`;
+        div.innerHTML = `<img src="${product.image}" alt="${product.title}" class="w-32 h-32 object-contain">
+    <h3>${product.title}</h3>
+    <p>$${product.price}</p>`;
 
         products_specific_container.appendChild(div);
     })
 }
 
 
-loadSpecificCategories("electronics");
+loadSpecificCategories("jewelery");
