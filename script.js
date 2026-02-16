@@ -171,3 +171,43 @@ const displayAllCategories = (categories) =>{
 
 
 allCategories();
+
+
+
+
+
+
+
+
+
+
+
+
+
+// all specific categories , products-specific-container
+
+const loadSpecificCategories = async (category) =>{
+    const specific_categories_url = (`https://fakestoreapi.com/products/category/${category}`);
+
+    const res = await fetch(specific_categories_url);
+    const data = await res.json();
+    displaySpecificCategories(data);
+}
+
+const displaySpecificCategories = (products) =>{
+    const products_specific_container = document.getElementById("products-specific-container");
+
+    products_specific_container.innerHTML = "";
+
+
+    products.forEach(product=>{
+        const div = document.createElement("div");
+
+        div.innerHTML = `Electronics`;
+
+        products_specific_container.appendChild(div);
+    })
+}
+
+
+loadSpecificCategories("electronics");
