@@ -1,8 +1,8 @@
-// all products
-const product_url = "https://fakestoreapi.com/products";
-
+// all products 
 
 const loadAllProducts = async () => {
+    const product_url = "https://fakestoreapi.com/products";
+
     const res = await fetch(product_url);
     const data = await res.json();
     displayAllProducts(data);
@@ -57,11 +57,11 @@ const displayAllProducts = (products) => {
                 <p class="text-xl font-bold mb-3">$${product.price}</p>
 
                 <div class="mt-auto flex justify-between">
-                    <button onclick="showDetails('${product.title}', '${product.description}')" class="btn btn-outline btn-sm">
+                    <button onclick="loadProductDetails(${product.id})" class="btn btn-outline btn-sm">
                         <i class="fa-regular fa-eye"></i> Details
                     </button>
                     <button onclick="addToCart(${product.id})" class="btn btn-primary btn-sm text-white">
-                        <i class="fa-solid fa-cart-shopping"></i> Add
+                        <i class="fa-solid fa-cart-plus"></i> Add
                     </button>
                 </div>
 
@@ -78,4 +78,57 @@ const displayAllProducts = (products) => {
 
 loadAllProducts();
 
+
+
+
+
+
+
+
+
+
+
+
+
+// details about all product
+
+
+const loadProductDetails = async (id) =>{
+
+    const details_url = `https://fakestoreapi.com/products/${id}`
+
+    const res = await fetch(details_url);
+    const data = await res.json();
+    displayProductDetails(data);
+
+}
+
+
+const displayProductDetails = (product) => {
+    const detailsContainer = document.getElementById("details-container");
+
+    detailsContainer.innerHTML = `<h2 class="text-xl font-bold mb-2">${product.title}</h2>
+        <p class="mb-2">${product.description}</p>
+        <p class="mb-1"><b>Category:</b> ${product.category}</p>
+        <p class="mb-2"><strong>Price:</strong>${product.price}</p>
+        <div class="flex items-center mb-2">
+            <i class="fa-solid fa-star text-yellow-400 mr-1"></i>
+            <span>${product.rating.rate} (${product.rating.count})</span>
+        </div>
+        <img src="${product.image}" alt="${product.title}" class="mt-4 w-full h-64 object-contain rounded-lg shadow-sm">
+
+        <div class="flex gap-3 mt-4">
+            <button onclick="buyNow(${product.id})" class="btn btn-success flex-1 text-white">
+               <i class="fa-solid fa-bag-shopping"></i> Buy Now
+            </button>
+            <button onclick="addToCart(${product.id})" class="btn btn-primary flex-1 text-white">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+        </div>
+    `;
+
+
+    document.getElementById("product_Modal").showModal();
+
+}
 
