@@ -27,7 +27,7 @@
 
 
     <!-- tailwind css -->
-     <!-- <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdn.jsdelivr.net/npm/daisyui@5/dist/full.css" rel="stylesheet" /> -->
 
 
@@ -189,38 +189,56 @@
             </div>
 
 
-
-           <div id="products-specific-container" class="flex flex-wrap gap-4 my-5 justify-center"></div>
-
-
-
-
+            <!-- <div id="products-specific-container" class="flex flex-wrap gap-4 my-5 justify-center"></div> -->
 
         </div>
 
 
-      
+
+
+        <!-- this is modal for details button -->
+        <button class="btn" onclick="my_modal_5.showModal()"></button>
+        <dialog id="product_Modal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <div id="details-container"></div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+    </section>
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="particular-product-container" class="bg-gray-100 p-10 w-11/12 mx-auto flex flex-wrap">
 
     </section>
 
-    <!-- Open the modal using ID.showModal() method -->
-    <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
-    <dialog id="product_Modal" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-            <div id="details-container"></div>
-            <div class="modal-action">
-                <form method="dialog">
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn">Close</button>
-                </form>
-            </div>
-        </div>
-    </dialog>
+
+
+
+
 
 
 

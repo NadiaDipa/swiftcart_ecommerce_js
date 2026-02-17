@@ -10,6 +10,97 @@ const loadAllProducts = async () => {
 
 
 
+
+// load every category button section start
+const loadEveryCategory = async(category) =>{
+    // console.log(category);
+
+    const newCategory = encodeURIComponent(category);
+
+    const url = `https://fakestoreapi.com/products/category/${newCategory}`;
+    console.log(url);
+
+
+    const res = await fetch(url);
+    const data = await res.json();
+    displayEveryCategory(data);
+
+
+}
+
+
+const displayEveryCategory = (products) =>{
+    const everyProductContainer = document.getElementById("particular-product-container");
+    
+    // everyProductContainer.innerHTML ="";
+
+    products.forEach(product=>{
+        const card = document.createElement("div");
+        card.className = "bg-white border rounded p-2 m-2 w-48";
+
+        card.innerHTML=` <img src="${product.image}" alt="${product.title}" class="w-40 h-40 object-contain mb-4"/>
+            <h3 class="font-semibold text-lg mb-2">${product.title}</h3>
+            <p class="text-gray-700 mb-2">$${product.price}</p>
+            <p class="text-sm text-gray-500 mb-2 line-clamp-3">${product.description}</p>
+            <p class="text-xs text-gray-400 mb-2">${product.category}</p>
+            <p class="text-yellow-500 font-semibold">⭐ ${product.rating.rate} (${product.rating.count})</p>`;
+
+        everyProductContainer.append(card)
+    })
+}
+
+
+
+
+
+// load every category button section end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const displayAllProducts = (products) => {
     const allProductsContainer = document.getElementById("all-products-container");
 
@@ -57,6 +148,7 @@ const displayAllProducts = (products) => {
                 <p class="text-xl font-bold mb-3">$${product.price}</p>
 
                 <div class="mt-auto flex justify-between">
+                
                     <button onclick="loadProductDetails(${product.id})" class="btn btn-outline btn-sm">
                         <i class="fa-regular fa-eye"></i> Details
                     </button>
@@ -90,7 +182,7 @@ loadAllProducts();
 
 
 
-// details about all product
+// details button about all product
 
 
 const loadProductDetails = async (id) =>{
@@ -160,17 +252,23 @@ const displayAllCategories = (categories) =>{
 
 
      categories.forEach(category => {
-        const button = document.createElement("button");
-        button.textContent = category;
-        button.className = "btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full";
+        // const button = document.createElement("button");
+        // button.textContent = category;
+        // button.className = "btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full";
 
-        // Add click event safely
-        button.addEventListener("click", () => {
-            // console.log(category);
-            loadSpecificCategories(category);
-        });
+     
+        // button.addEventListener("click", () => {
+        //     // console.log(category);
+        //     loadSpecificCategories(category);
+        // });
 
-        all_categories_container.appendChild(button);
+
+        const btnDiv = document.createElement("div");
+        btnDiv.innerHTML = `<button onclick="loadEveryCategory(\`${category}\`)" class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full"> ${category}
+        </button>`
+
+
+        all_categories_container.appendChild(btnDiv);
     })
 }
 
@@ -191,49 +289,44 @@ allCategories();
 
 // all specific categories , products-specific-container
 
-const loadSpecificCategories = async (category) =>{
+// const loadSpecificCategories = async (category) =>{
 
-// console.log("clicked:" ,category);
-
- const specific_categories_url = (`https://fakestoreapi.com/products/category/${category}`);
-
-// console.log(specific_categories_url);
-
-const res = await fetch(specific_categories_url);
- const data = await res.json();
-// console.log(data);
-   displaySpecificCategories(data);
-}
-
-const displaySpecificCategories = (products) =>{
-  // console.log("hello running function");
-     const products_specific_container = document.getElementById("products-specific-container");
- //     console.log(products_specific_container);
+//  const specific_categories_url = (`https://fakestoreapi.com/products/category/${category}`);
 
 
-products_specific_container.innerHTML = "";
+// const res = await fetch(specific_categories_url);
+//  const data = await res.json();
+//    displaySpecificCategories(data);
+// }
+
+// const displaySpecificCategories = (products) =>{
+  
+//      const products_specific_container = document.getElementById("products-specific-container");
+
+
+// products_specific_container.innerHTML = "";
 
 
 
 
-    products.forEach(product=>{
-        const div = document.createElement("div");
+//     products.forEach(product=>{
+//         const div = document.createElement("div");
 
-        div.className = "border p-4 rounded shadow bg-white w-60 flex flex-col items-center";
-
-
-    div.innerHTML = `<img src="${product.image}" alt="${product.title}" class="w-32 h-32 object-contain mb-2">
-        <h3 class="text-sm font-semibold text-center">${product.title}</h3>
-    <p class="text-gray-700 font-medium mt-1">$${product.price}</p>
-    `;
-
-     products_specific_container.appendChild(div);
-})
-
-}
+//         div.className = "border p-4 rounded shadow bg-white w-60 flex flex-col items-center";
 
 
-// // loadSpecificCategories("jewelery");
+//     div.innerHTML = `<img src="${product.image}" alt="${product.title}" class="w-32 h-32 object-contain mb-2">
+//         <h3 class="text-sm font-semibold text-center">${product.title}</h3>
+//     <p class="text-gray-700 font-medium mt-1">$${product.price}</p>
+//     `;
+
+//      products_specific_container.appendChild(div);
+// })
+
+// }
+
+
+// loadSpecificCategories("jewelery");
 
 
 
