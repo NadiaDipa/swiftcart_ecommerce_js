@@ -99,6 +99,12 @@ const loadEveryCategory = async (category) => {
 
     const res = await fetch(url);
     const data = await res.json();
+
+    // get container and clear for previous product won't show
+    const allProductsContainer = document.getElementById("all-products-container");
+    allProductsContainer.innerHTML = "";
+
+
     displayEveryCategory(data);
 
 
@@ -108,7 +114,7 @@ const loadEveryCategory = async (category) => {
 const displayEveryCategory = (products) => {
     const everyProductContainer = document.getElementById("particular-product-container");
 
-    // everyProductContainer.innerHTML ="";
+    everyProductContainer.innerHTML ="";
 
     products.forEach(product => {
         const card = document.createElement("div");
