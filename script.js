@@ -10,10 +10,6 @@ const loadAllProducts = async () => {
 }
 
 
-
-
-
-
 const displayAllProducts = (products) => {
 
 
@@ -76,8 +72,6 @@ const displayAllProducts = (products) => {
         
 `
 
-
-
         allProductsContainer.appendChild(div)
     })
 }
@@ -105,7 +99,7 @@ const loadEveryCategory = async (category) => {
     const res = await fetch(url);
     const data = await res.json();
 
-    // get container and clear for previous product won't show
+    // get container and clear(previous product won't show)
     const allProductsContainer = document.getElementById("all-products-container");
     allProductsContainer.innerHTML = "";
 
@@ -223,7 +217,7 @@ const displayProductDetails = (product) => {
 // all categories 
 
 const allCategories = async () => {
-    
+
 
     const categories_url = ("https://fakestoreapi.com/products/categories")
 
@@ -258,11 +252,14 @@ const displayAllCategories = (categories) => {
         all_categories_container.appendChild(btnDiv);
     });
 
- 
+
 }
 
 loadAllProducts();
 allCategories();
+
+
+
 
 
 
@@ -282,6 +279,8 @@ const setActiveButton = (clickedBtn) => {
 
 
 
+
+
 // product show for top rating
 
 const displayTopThreeProducts = (products) => {
@@ -289,7 +288,7 @@ const displayTopThreeProducts = (products) => {
     const topThreeProducts = sortedProducts.slice(0, 4);
 
     const container = document.getElementById("home-products");
-    container.innerHTML = ""; // clear previous
+    container.innerHTML = "";
 
     topThreeProducts.forEach(product => {
         const div = document.createElement("div");
