@@ -168,52 +168,6 @@ const displayEveryCategory = (products) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // details button about all product
 
 
@@ -262,9 +216,6 @@ const displayProductDetails = (product) => {
 
 
 
-
-
-
 // all categories 
 
 const allCategories = async () => {
@@ -285,7 +236,7 @@ const displayAllCategories = (categories) => {
 
     // all products button 
     const allBtnDiv = document.createElement("div");
-    allBtnDiv.innerHTML = `<button onclick="loadAllProducts()" class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full mr-2 mb-2">All Products</button>`;
+    allBtnDiv.innerHTML = `<button onclick="loadAllProducts()" class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full mr-2 mb-2 active-btn">All Products</button>`;
 
     all_categories_container.appendChild(allBtnDiv);
 
@@ -293,7 +244,7 @@ const displayAllCategories = (categories) => {
     // rest of the button
     categories.forEach(category => {
         const btnDiv = document.createElement("div");
-        btnDiv.innerHTML = `<button onclick="loadEveryCategory(\`${category}\`)" class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full"> ${category}
+        btnDiv.innerHTML = `<button onclick="loadEveryCategory(\`${category}\`)" class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full active-btn"> ${category}
         </button>`
 
 
@@ -303,6 +254,21 @@ const displayAllCategories = (categories) => {
 
 loadAllProducts();
 allCategories();
+
+
+
+
+
+
+// for active button 
+const setActiveButton = (clickedBtn) => {
+    // sob button select
+    const buttons = document.querySelectorAll('.active-btn');
+    buttons.forEach(btn => btn.classList.remove('active')); // sob theke remove
+
+    // click kora button e add
+    clickedBtn.classList.add('active');
+}
 
 
 
