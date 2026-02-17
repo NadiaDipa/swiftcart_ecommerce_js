@@ -1,3 +1,33 @@
+# JavaScript Question and Answer
+
+1) What is the difference between null and undefined? 
+==> null মানে ইচ্ছাকৃতভাবে empty value সেট করা হয়েছে।
+==> undefined হচ্ছে ভ্যারিয়েবলে value initialize করা হয়নি।
+
+2) What is the use of the map() function in JavaScript? How is it different from forEach()? 
+==> map হচ্ছে new array return করে, function call করে।
+==> forEach () array -র প্রতি item কে loop করে iterate করে, কিন্তু new array return করে না।
+
+3) What is the difference between == and ===? 
+== হচ্ছে শুধু value চেক করে। আর type convert করে।
+=== হচ্ছে type, value দুটোই চেক করে, এটা ইউজ করাই secure.
+
+4) What is the significance of async/await in fetching API data? 
+==> async হচ্ছে কোনো data get করার সময় একটা promise return করে। await হচ্ছে ওই promise এর response আসা পর্যন্ত wait করে। এটা ইউজ করলে data fetch এ bug থাকলে debug করা সহজ।
+
+5) Explain the concept of Scope in JavaScript (Global, Function, Block). 
+==> global হচ্ছে স্কোপের যেকোনো জায়গা থেকে access করা যায়।
+Function হচ্ছে, শুধু ফাংশনের মধ্যেই access করা যাবে, বাইরে থেকে access করা যাবে না । যেমন var,let, const
+Block স্কোপ হচ্ছে, শুধু block স্কোপের মধ্যেই কাজ করবে, বাইরে থেকে access করা যাবে না। যেমন : let, const
+
+
+
+
+
+
+
+
+
 ## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT (SwiftCart E-Commerce)
 
 
