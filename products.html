@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products</title>
+
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+
+
+    <!-- daisy UI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+    <!-- stylesheet  -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- header-section -->
+    <header class="header-section">
+        <div class="navbar bg-base-100 shadow-sm header-div w-11/12 mx-auto">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <ul class="p-2">
+                            <li><a>Home</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a>About</a></li>
+                            <li><a>Contact</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </div>
+                <span class="btn btn-ghost text-3xl text-primary font-bold">SwiftCart</span>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li class="text-primary text-xl font-bold"><a>Home</a></li>
+                    <li class="text-xl font-bold text-gray-600"><a>Products</a></li>
+                    <li class="text-xl font-bold text-gray-600"><a>About</a></li>
+                    <li class="text-xl font-bold text-gray-600"><a>Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end text-3xl">
+                <i class="fa-solid fa-cart-arrow-down"></i>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="w-11/12 mx-auto py-20">
+
+            <!-- All categories container -->
+            <div class="my-5 w-full text-center">
+                <h2 class="text-3xl font-bold mb-3">All Categories</h2>
+
+
+                <div id="all_categories_container" class="flex flex-wrap gap-3 justify-center mb-10">
+                </div>
+            </div>
+
+
+            <!--all products container -->
+         
+            <div id="all-products-container"
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-5">
+            </div>
+        </div>
+
+
+          
+         <section id="particular-product-container" class="bg-gray-100 p-10 w-11/12 mx-auto flex flex-wrap"></section>
+
+    </section>
+
+
+
+
+    <section>
+          <!-- this is modal for details button -->
+        <button class="btn" onclick="my_modal_5.showModal()"></button>
+        <dialog id="product_Modal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <div id="details-container"></div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+    </section>
+
+
+  
+    
+
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
