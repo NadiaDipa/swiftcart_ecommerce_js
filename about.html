@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftCart E-Commerce</title>
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+
+    <!-- daisy UI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+    <!-- tailwind css -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5/dist/full.css" rel="stylesheet" /> -->
+
+
+
+    <!-- stylesheet  -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- header-section -->
+    <header class="header-section">
+        <div class="navbar bg-base-100 shadow-sm header-div w-11/12 mx-auto">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <ul class="p-2">
+                            <li><a>Home</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a>About</a></li>
+                            <li><a>Contact</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </div>
+                <span class="btn btn-ghost text-3xl text-primary font-bold">SwiftCart</span>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li class="text-primary text-xl font-bold"><a href="index.html">Home</a></li>
+                    <li class="text-xl font-bold text-gray-600"><a href="products.html">Products</a></li>
+                    <li class="text-xl font-bold text-gray-600"><a href="about.html">About</a></li>
+                    <li class="text-xl font-bold text-gray-600"><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end text-3xl">
+                <i class="fa-solid fa-cart-arrow-down"></i>
+            </div>
+        </div>
+    </header>
+
+
+
+<section>
+<div class="card card-side bg-base-100 shadow-sm w-11/12 mx-auto mt-30">
+  <!-- Text on the left, vertically centered -->
+  <div class="card-body w-1/2 flex flex-col justify-center items-center text-center md:text-left space-y-2">
+    <h2 class="text-3xl font-bold">About SwiftCart</h2>
+    
+    <p class="text-lg text-gray-600">
+      SwiftCart is a simple and modern online store built to make shopping fast, easy, and enjoyable.
+      We offer a wide range of products including electronics, fashion, home essentials, and more.
+    </p>
+    
+    <p class="text-lg text-gray-600">
+      Our platform provides clear product descriptions, high-quality images, customer ratings, and reviews to help you make informed decisions.
+    </p>
+    
+    <p class="text-lg text-gray-600">
+      Shopping with SwiftCart is secure, reliable, and convenient. We focus on providing fast delivery, hassle-free returns, and responsive customer support.
+    </p>
+    
+    <p class="text-lg text-gray-600">
+      We are committed to innovation and constantly improving our services. From easy navigation to smart product recommendations, our goal is to give you a seamless online shopping experience.
+    </p>
+    
+    <p class="text-lg text-gray-600">
+      Join thousands of satisfied customers who trust SwiftCart for their daily shopping needs, and experience the difference of a store designed with you in mind.
+    </p>
+  </div>
+
+  <!-- Image on the right, smaller size -->
+  <figure class="w-1/2 flex justify-center items-center">
+    <img src="./Assets/about.png" alt="About SwiftCart" class="w-2/3 md:w-3/4" />
+  </figure>
+</div>
+</section>

@@ -163,11 +163,6 @@ const displayEveryCategory = (products) => {
         everyProductContainer.append(card)
     })
 }
-
-
-
-
-
 // load every category button section end
 
 
