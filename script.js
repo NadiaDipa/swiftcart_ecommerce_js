@@ -1,33 +1,3 @@
-// // product show for top rating
-
-// const sortedProducts = products.sort((a, b) => b.rating.rate - a.rating.rate);
-
-
-// const topThreeProducts = sortedProducts.slice(0, 3);
-
-
-
-// const container = document.getElementById("home-products"); // je div te show korbe
-
-// topThreeProducts.forEach(product => {
-//     const div = document.createElement("div");
-//     div.className = "product-card"; // CSS class diye style korte paro
-//     div.innerHTML = `
-//         <h3>${product.title}</h3>
-//         <p>Rating: ${product.rating}</p>
-//     `;
-//     container.appendChild(div);
-// });
-
-
-
-
-
-
-
-
-
-
 
 // all products 
 
@@ -45,6 +15,8 @@ const loadAllProducts = async () => {
 
 
 const displayAllProducts = (products) => {
+
+
     const allProductsContainer = document.getElementById("all-products-container");
 
     allProductsContainer.innerHTML = "";
@@ -319,19 +291,43 @@ const setActiveButton = (clickedBtn) => {
 
 const displayTopThreeProducts = (products) => {
     const sortedProducts = products.sort((a, b) => b.rating.rate - a.rating.rate);
-    const topThreeProducts = sortedProducts.slice(0, 3);
+    const topThreeProducts = sortedProducts.slice(0, 4);
 
     const container = document.getElementById("home-products");
     container.innerHTML = ""; // clear previous
 
     topThreeProducts.forEach(product => {
         const div = document.createElement("div");
-        div.className = "product-card p-4 border rounded m-2";
         div.innerHTML = `
-            <img src="${product.image}" alt="${product.title}" class="w-full h-64 object-cover mb-3" />
-            <h3 class="text-lg font-semibold">${product.title}</h3>
-            <p>Rating: ${product.rating.rate}</p>
-            <p>Price: $${product.price}</p>
+ <div class="card bg-white shadow-md rounded-lg overflow-hidden flex flex-col">
+
+        <figure class="h-52 bg-gray-100 flex items-center justify-center">
+            <img src="${product.image}" alt="${product.title}" class="h-full object-contain" />
+        </figure>
+
+        <div class="card-body flex flex-col flex-1 p-4">
+            <div class="flex justify-between items-center mb-2">
+                <span class="badge text-primary bg-purple-50 font-bold text-sm">${product.category}</span>
+                <div class="flex items-center text-sm">
+                    <i class="fa-solid fa-star text-yellow-400 mr-1"></i>
+                    <span>${product.rating.rate} (${product.rating.count})</span>
+                </div>
+            </div>
+
+            <h2 class="text-lg font-semibold mb-1 truncate">${product.title}</h2>
+            <p class="text-xl font-bold mb-3">$${product.price}</p>
+
+            <div class="mt-auto flex justify-between">
+                <button onclick="loadProductDetails(${product.id})" class="btn btn-outline btn-sm">
+                    <i class="fa-regular fa-eye"></i> Details
+                </button>
+                <button onclick="addToCart(${product.id})" class="btn btn-primary btn-sm text-white">
+                    <i class="fa-solid fa-cart-plus"></i> Add
+                </button>
+            </div>
+        </div>
+
+    </div>
         `;
         container.appendChild(div);
     });
@@ -339,7 +335,15 @@ const displayTopThreeProducts = (products) => {
 
 
 
+const loadHomeProducts = async () => {
+    const res = await fetch("https://fakestoreapi.com/products");
+    const data = await res.json();
+    displayTopThreeProducts(data);
+};
 
+window.onload = () => {
+    loadHomeProducts();
+};
 
 
 
