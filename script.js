@@ -57,7 +57,7 @@ const displayAllProducts = (products) => {
 
 
                 <h2 class="text-lg font-semibold mb-1 truncate">${product.title}</h2>
-                <p class="text-xl font-bold mb-3">$${product.price}</p>
+                <p class="text-xl font-bold mb-3">${product.price}</p>
 
                 <div class="mt-auto flex justify-between">
                 
@@ -114,18 +114,42 @@ const loadEveryCategory = async (category) => {
 const displayEveryCategory = (products) => {
     const everyProductContainer = document.getElementById("particular-product-container");
 
-    everyProductContainer.innerHTML ="";
+    everyProductContainer.innerHTML = "";
 
     products.forEach(product => {
         const card = document.createElement("div");
-        card.className = "bg-white border rounded p-2 m-2 w-48";
 
-        card.innerHTML = ` <img src="${product.image}" alt="${product.title}" class="w-40 h-40 object-contain mb-4"/>
-            <h3 class="font-semibold text-lg mb-2">${product.title}</h3>
-            <p class="text-gray-700 mb-2">$${product.price}</p>
-            <p class="text-sm text-gray-500 mb-2 line-clamp-3">${product.description}</p>
-            <p class="text-xs text-gray-400 mb-2">${product.category}</p>
-            <p class="text-yellow-500 font-semibold">⭐ ${product.rating.rate} (${product.rating.count})</p>`;
+        card.innerHTML = `
+    <div class="card bg-white shadow-md rounded-lg overflow-hidden flex flex-col">
+
+        <figure class="h-52 bg-gray-100 flex items-center justify-center">
+            <img src="${product.image}" alt="${product.title}" class="h-full object-contain" />
+        </figure>
+
+        <div class="card-body flex flex-col flex-1 p-4">
+            <div class="flex justify-between items-center mb-2">
+                <span class="badge text-primary bg-purple-50 font-bold text-sm">${product.category}</span>
+                <div class="flex items-center text-sm">
+                    <i class="fa-solid fa-star text-yellow-400 mr-1"></i>
+                    <span>${product.rating.rate} (${product.rating.count})</span>
+                </div>
+            </div>
+
+            <h2 class="text-lg font-semibold mb-1 truncate">${product.title}</h2>
+            <p class="text-xl font-bold mb-3">$${product.price}</p>
+
+            <div class="mt-auto flex justify-between">
+                <button onclick="loadProductDetails(${product.id})" class="btn btn-outline btn-sm">
+                    <i class="fa-regular fa-eye"></i> Details
+                </button>
+                <button onclick="addToCart(${product.id})" class="btn btn-primary btn-sm text-white">
+                    <i class="fa-solid fa-cart-plus"></i> Add
+                </button>
+            </div>
+        </div>
+
+    </div>
+`;
 
         everyProductContainer.append(card)
     })
