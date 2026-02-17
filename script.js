@@ -1,3 +1,34 @@
+// // product show for top rating
+
+// const sortedProducts = products.sort((a, b) => b.rating.rate - a.rating.rate);
+
+
+// const topThreeProducts = sortedProducts.slice(0, 3);
+
+
+
+// const container = document.getElementById("home-products"); // je div te show korbe
+
+// topThreeProducts.forEach(product => {
+//     const div = document.createElement("div");
+//     div.className = "product-card"; // CSS class diye style korte paro
+//     div.innerHTML = `
+//         <h3>${product.title}</h3>
+//         <p>Rating: ${product.rating}</p>
+//     `;
+//     container.appendChild(div);
+// });
+
+
+
+
+
+
+
+
+
+
+
 // all products 
 
 const loadAllProducts = async () => {
@@ -88,6 +119,8 @@ const displayAllProducts = (products) => {
 
 
 // load every category button section start
+
+
 const loadEveryCategory = async (category) => {
     // console.log(category);
 
@@ -109,6 +142,10 @@ const loadEveryCategory = async (category) => {
 
 
 }
+
+
+
+
 
 
 const displayEveryCategory = (products) => {
@@ -219,6 +256,8 @@ const displayProductDetails = (product) => {
 // all categories 
 
 const allCategories = async () => {
+    
+
     const categories_url = ("https://fakestoreapi.com/products/categories")
 
     const res = await fetch(categories_url);
@@ -236,7 +275,8 @@ const displayAllCategories = (categories) => {
 
     // all products button 
     const allBtnDiv = document.createElement("div");
-    allBtnDiv.innerHTML = `<button onclick="loadAllProducts()" class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full mr-2 mb-2 active-btn">All Products</button>`;
+    allBtnDiv.innerHTML = `<button onclick="loadAllProducts()" class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-lg rounded-full mr-2 mb-2 active-btn">All Products
+    </button>`;
 
     all_categories_container.appendChild(allBtnDiv);
 
@@ -249,7 +289,9 @@ const displayAllCategories = (categories) => {
 
 
         all_categories_container.appendChild(btnDiv);
-    })
+    });
+
+ 
 }
 
 loadAllProducts();
@@ -262,25 +304,38 @@ allCategories();
 
 // for active button 
 const setActiveButton = (clickedBtn) => {
-    // sob button select
-    const buttons = document.querySelectorAll('.active-btn');
-    buttons.forEach(btn => btn.classList.remove('active')); // sob theke remove
 
-    // click kora button e add
+    const buttons = document.querySelectorAll('.active-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+
     clickedBtn.classList.add('active');
 }
 
 
 
 
+// product show for top rating
 
+const displayTopThreeProducts = (products) => {
+    const sortedProducts = products.sort((a, b) => b.rating.rate - a.rating.rate);
+    const topThreeProducts = sortedProducts.slice(0, 3);
 
+    const container = document.getElementById("home-products");
+    container.innerHTML = ""; // clear previous
 
-
-
-
-
-
+    topThreeProducts.forEach(product => {
+        const div = document.createElement("div");
+        div.className = "product-card p-4 border rounded m-2";
+        div.innerHTML = `
+            <img src="${product.image}" alt="${product.title}" class="w-full h-64 object-cover mb-3" />
+            <h3 class="text-lg font-semibold">${product.title}</h3>
+            <p>Rating: ${product.rating.rate}</p>
+            <p>Price: $${product.price}</p>
+        `;
+        container.appendChild(div);
+    });
+};
 
 
 
